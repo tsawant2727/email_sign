@@ -51,7 +51,8 @@
         .name-row {
             display: flex;
             align-items: baseline;
-            margin-bottom: 0px;
+            margin-top: 10px;
+            margin-bottom: 6px;
             margin-left: 6px;
         }
         .name-main {
@@ -76,19 +77,19 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            margin: 16px 0 12px 0;
+            margin: 0 0 0 0;
         }
         .banner-row img {
             max-width: 100%;
             width: 100%;
             border-radius: 14px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            /* box-shadow: 0 2px 8px rgba(0,0,0,0.04); */
         }
         .bottom-info {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
+            margin-top: -4px;
             gap: 12px;
         }
         .address {
@@ -161,6 +162,7 @@
             <input type="text" id="form-linkedin" placeholder="LinkedIn Profile URL" value="https://www.linkedin.com/in/aditya-oza" />
             <button type="submit">Update Signature</button>
         </form>
+        <a href="./help.html" style="margin-top: 18px; display: block; text-align: center; color: #0892d0; font-size: .98em; font-weight: 500; text-decoration: underline;">Don't know how to set an email signature?</a>
     </div>
 
     <div class="signature-container" id="signature-preview">
@@ -174,7 +176,11 @@
             </span>
         </div>
         <div class="banner-row">
-            <img src="banner.png" alt="Luxora & CureMeAbroad Banner">
+            <div style="width:100%; position:relative; cursor:pointer;" id="split-banner">
+                <img src="banner.png" alt="Luxora & CureMeAbroad Banner" style="width:100%; display:block;">
+                <div style="position:absolute;top:0;left:0;width:50%;height:100%;cursor:pointer;"></div>
+                <div style="position:absolute;top:0;right:0;width:50%;height:100%;cursor:pointer;"></div>
+            </div>
         </div>
         <div class="bottom-info">
             <div class="address">
@@ -183,11 +189,11 @@
             <div class="links-social">
                 <a class="web" href="https://www.luxoraexperiences.com">www.luxoraexperiences.com</a>
                 <span class="pipe">|</span>
-                <a class="phone" href="tel:+18059000810">+1 805 900 0810</a>
+                <a class="phone" href="tel:+18059000810">+18059000810</a>
                 <span class="icons">
-                    <a id="icon-linkedin" href="https://www.linkedin.com/in/aditya-oza" target="_blank"><img src="linked.png" alt="LinkedIn"></a>
-                    <a href="https://www.instagram.com/" target="_blank"><img src="insta.png" alt="Instagram"></a>
-                    <a href="https://www.facebook.com/" target="_blank"><img src="fb.png" alt="Facebook"></a>
+                    <a id="icon-linkedin" href="https://www.linkedin.com/company/luxoraexperiences" target="_blank"><img src="linked.png" alt="LinkedIn"></a>
+                    <a href="https://www.instagram.com/luxoraexperiences/" target="_blank"><img src="insta.png" alt="Instagram"></a>
+                    <a href="https://www.facebook.com/luxoraexperiences" target="_blank"><img src="fb.png" alt="Facebook"></a>
                 </span>
             </div>
         </div>
@@ -205,6 +211,19 @@
     }
     // Live update on input as well:
     $('#form-fullname, #form-designation, #form-linkedin').on('input', updateSignature);
+
+    // Banner click: left half opens luxora, right half curemeabroad
+    $('#split-banner').on('click', function(e){
+        var banner = $(this);
+        var offset = banner.offset();
+        var x = e.pageX - offset.left;
+        var width = banner.width();
+        if(x < width / 2){
+            window.open('https://luxoraexperiences.com/', '_blank');
+        } else {
+            window.open('https://curemeabroad.com/', '_blank');
+        }
+    });
     </script>
 </body>
 </html>
