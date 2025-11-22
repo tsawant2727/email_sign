@@ -150,6 +150,15 @@
             .address,.links-social {width: 100%; text-align:left;align-items:flex-start;}
             .links-social {margin-top:18px;align-items:flex-start;}
 		}
+        @media (max-width: 500px) {
+            .sig-info-table { display:block; width:100%!important; }
+            .sig-info-row { display:block; width:100%!important; }
+            .sig-info-address { display:block; width:100%!important; padding-bottom:3px; }
+            .sig-info-contact { display:block; width:100%!important; text-align:left!important; font-size:0.78em!important; }
+            .sig-info-contact a,
+            .sig-info-contact span, .sig-info-socials img { font-size:0.74em!important; height:16px!important; width:16px!important; }
+            .sig-info-socials img { width:16px!important; height:16px!important; }
+        }
 	</style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
@@ -181,17 +190,17 @@
                 <img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/banner.png" alt="Luxora & CureMeAbroad Banner" style="width:100%;max-width:100%;display:block;margin:0;padding:0;border:none;vertical-align:bottom;">
               </a>
               <br style="line-height:4px;">
-              <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;padding:0;margin:0;">
-                <tr>
-                  <td style="vertical-align:middle;font-size:0.74em;color:#232323;font-weight:500;font-family:'Roboto',Arial,sans-serif;padding:0 5px 0 0;margin:0;white-space:nowrap;">
+              <table cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;padding:0;margin:0;" class="sig-info-table">
+                <tr class="sig-info-row">
+                  <td class="sig-info-address" style="vertical-align:middle;font-size:0.74em;color:#232323;font-weight:500;font-family:'Roboto',Arial,sans-serif;padding:0 5px 0 0;margin:0;white-space:nowrap;">
                     Luxora HQ, 169/2 Sangawade Road, Pune, MH India 411033
                   </td>
-                  <td style="vertical-align:middle;font-size:0.74em;font-family:'Roboto',Arial,sans-serif;color:#1ca2b5;font-weight:500;padding:0 9px;margin:0;white-space:nowrap;text-align:center;">
+                  <td class="sig-info-contact" style="vertical-align:middle;font-size:0.74em;font-family:'Roboto',Arial,sans-serif;color:#1ca2b5;font-weight:500;padding:0 9px;margin:0;white-space:nowrap;text-align:center;">
                     <a href="https://www.luxoraexperiences.com" target="_blank" style="color:#1ca2b5;text-decoration:none;">www.luxoraexperiences.com</a>
                     <span style="margin:0 6px;color:#222;font-size:0.74em;">|</span>
                     <a href="tel:+18059000810" style="color:#1ca2b5;text-decoration:none;">+18059000810</a>
                   </td>
-                  <td style="vertical-align:middle;padding:0 0 0 9px;margin:0;white-space:nowrap;text-align:right;">
+                  <td class="sig-info-socials" style="vertical-align:middle;padding:0 0 0 9px;margin:0;white-space:nowrap;text-align:right;">
                     <a href="https://www.linkedin.com/company/luxoraexperiences" target="_blank"><img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/linked.png" alt="LinkedIn" style="width:20px;height:20px;border-radius:4px;background:#f8f8f8;vertical-align:middle;margin:0 2px;"></a>
                     <a href="https://www.instagram.com/luxoraexperiences/" target="_blank"><img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/insta.png" alt="Instagram" style="width:20px;height:20px;border-radius:4px;background:#f8f8f8;vertical-align:middle;margin:0 2px;"></a>
                     <a href="https://www.facebook.com/luxoraexperiences" target="_blank"><img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/fb.png" alt="Facebook" style="width:20px;height:20px;border-radius:4px;background:#f8f8f8;vertical-align:middle;margin:0 2px;"></a>
