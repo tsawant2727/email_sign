@@ -180,14 +180,14 @@
             <td style="padding:0;vertical-align:top;text-align:left;line-height:1;margin:0;">
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:8px;table-layout:fixed;"><tr>
                 <td style="vertical-align:bottom;text-align:left;padding:0 0 0 12px;width:60%;">
-                  <span style="display:block;font-family:'Poppins',Verdana,Arial,sans-serif;font-size:1.8em;font-weight:600;color:#111;letter-spacing:-1px;line-height:1;">Aditya Oza</span>
-                  <span style="display:block;font-size:0.8em;color:#222;font-family:Verdana, Arial, sans-serif;line-height:1.1;margin-top:2px;">CEO &amp; Co-Founder
-                    <a href="https://www.linkedin.com/in/aditya-oza" target="_blank" style="text-decoration:none;vertical-align:text-bottom;margin-left:6px;"><img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/linked.png" alt="LinkedIn" style="width:16px;height:16px;vertical-align:middle;margin:0;padding:0;border:none;display:inline-block;"></a>
+                  <span id="sig-name" style="display:block;font-family:'Poppins',Verdana,Arial,sans-serif;font-size:1.8em;font-weight:600;color:#111;letter-spacing:-1px;line-height:1;">Aditya Oza</span>
+                  <span id="sig-designation" style="display:block;font-size:0.8em;color:#222;font-family:Verdana, Arial, sans-serif;line-height:1.1;margin-top:2px;">CEO &amp; Co-Founder
+                    <a id="sig-linkedin-link" href="https://www.linkedin.com/in/aditya-oza" target="_blank" style="text-decoration:none;vertical-align:text-bottom;margin-left:6px;"><img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/linked.png" alt="LinkedIn" style="width:16px;height:16px;vertical-align:middle;margin:0;padding:0;border:none;display:inline-block;"></a>
                   </span>
                 </td>
                 <td style="vertical-align:bottom;text-align:right;padding:0 12px 0 0;width:40%;">
                   <span style="display:inline-block;vertical-align:bottom;">
-                    <a href="https://www.linkedin.com/company/luxoraexperiences" target="_blank" style="display:inline-block;margin-left:0;"><img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/linked.png" alt="LinkedIn" style="width:20px;height:20px;border-radius:4px;background:#f8f8f8;vertical-align:middle;margin:0 0 0 0;"></a>
+                    <a id="icon-linkedin" href="https://www.linkedin.com/company/luxoraexperiences" target="_blank" style="display:inline-block;margin-left:0;"><img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/linked.png" alt="LinkedIn" style="width:20px;height:20px;border-radius:4px;background:#f8f8f8;vertical-align:middle;margin:0 0 0 0;"></a>
                     <a href="https://www.instagram.com/luxoraexperiences/" target="_blank" style="display:inline-block;margin-left:8px;"><img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/insta.png" alt="Instagram" style="width:20px;height:20px;border-radius:4px;background:#f8f8f8;vertical-align:middle;margin:0;"></a>
                     <a href="https://www.facebook.com/luxoraexperiences" target="_blank" style="display:inline-block;margin-left:8px;"><img src="https://luxora-cms.s3.ap-south-1.amazonaws.com/luxora-media/fb.png" alt="Facebook" style="width:20px;height:20px;border-radius:4px;background:#f8f8f8;vertical-align:middle;margin:0;"></a>
                   </span>
@@ -214,8 +214,18 @@
         const linkedinUrl = $('#form-linkedin').val() || 'https://www.linkedin.com/in/aditya-oza';
 
         $('#sig-name').text(fullName);
-        $('#sig-designation')[0].childNodes[0].nodeValue = designation + '\n                ';
+        // Update just the text before the left LinkedIn anchor in the designation element
+        const leftDesigElem = document.getElementById('sig-designation');
+        if (leftDesigElem && leftDesigElem.childNodes.length > 0) {
+            for (let i = 0; i < leftDesigElem.childNodes.length; i++) {
+                if (leftDesigElem.childNodes[i].nodeType === 3) { // text node
+                    leftDesigElem.childNodes[i].textContent = designation + ' ';
+                    break;
+                }
+            }
+        }
         $('#sig-linkedin-link').attr('href', linkedinUrl);
+        $('#icon-linkedin').attr('href', linkedinUrl);
     }
     // Live update on input as well:
     $('#form-fullname, #form-designation, #form-linkedin').on('input', updateSignature);
